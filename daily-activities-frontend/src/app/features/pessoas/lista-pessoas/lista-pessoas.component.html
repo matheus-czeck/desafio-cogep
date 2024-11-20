@@ -1,0 +1,26 @@
+<div>
+  <label for="pessoa">Selecione uma pessoa:</label>
+  <select id="pessoa" (change)="onSelecionarPessoa($event)">
+    <option value="" disabled selected>Escolha uma pessoa</option>
+    <option *ngFor="let pessoa of pessoas" [value]="pessoa.id">
+      {{ pessoa.name }}
+    </option>
+  </select>
+  
+</div>
+
+<div *ngIf="pessoaSelecionada">
+  <h3>Informações da Pessoa</h3>
+  <p><strong>Nome:</strong> {{ pessoaSelecionada.name }}</p>
+  <p><strong>Telefone:</strong> {{ pessoaSelecionada.phone }}</p>
+  <p><strong>Email:</strong> {{ pessoaSelecionada.email }}</p>
+  <p><strong>Endereço:</strong> {{ pessoaSelecionada.address }}</p>
+
+  <h3>Atividades</h3>
+  <ul>
+    <li *ngFor="let atividade of atividades">
+      <strong>{{ atividade.name }}</strong>: {{ atividade.description }}
+    </li>
+  </ul>
+</div>
+<app-back-button></app-back-button>

@@ -1,0 +1,13 @@
+
+<h2>Cadastrar Pessoa</h2>
+<form (ngSubmit)="onSave()">
+  <input type="text" [(ngModel)]="pessoa.name" name="name" placeholder="Nome" required />
+  <input type="text" [(ngModel)]="pessoa.phone" name="phone" placeholder="Telefone" required />
+  <input type="email" [(ngModel)]="pessoa.email" name="email" placeholder="Email" required />
+  <input type="text" [(ngModel)]="pessoa.address.street" name="street" placeholder="Rua" required />
+  <input type="text" [(ngModel)]="pessoa.address.number" name="number" placeholder="Número" required />
+  <input type="text" [(ngModel)]="pessoa.address.complement" name="complement" placeholder="Complemento" />
+  <input type="text" [(ngModel)]="pessoa.address.city" name="city" placeholder="Cidade" required />
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+<app-back-button></app-back-button>
