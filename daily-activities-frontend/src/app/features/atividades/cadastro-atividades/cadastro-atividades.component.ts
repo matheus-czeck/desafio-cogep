@@ -8,7 +8,7 @@ import { BackButtonComponent } from '../../back-button/back-button.component';
 @Component({
   selector: 'app-cadastro-atividades',
   standalone: true,
-  imports: [CommonModule, FormsModule, BackButtonComponent], // 
+  imports: [CommonModule, FormsModule, BackButtonComponent], 
   templateUrl: './cadastro-atividades.component.html',
 })
 export class CadastroAtividadesComponent {

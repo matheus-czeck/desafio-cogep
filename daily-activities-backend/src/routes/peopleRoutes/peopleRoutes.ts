@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { authenticate } from "../../services/middlewares/auth.middleware";
 import { People } from "../../models/people";
-import { Activities } from "../../models/activities";
+import { getPersonById } from "../../services/controllers/people.controller";
 
 const router = Router();
 
@@ -19,29 +19,7 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const people = await People.findByPk(id, {
-      include: [
-        {
-          model: Activities,
-          as: "atividadesPessoa",
-        },
-      ],
-    });
-
-    if (!people) {
-      return res.status(404).json({ error: "Pessoa não encontrada" });
-    }
-
-    res.json(people);
-  } catch (err) {
-    console.error("Erro ao obter detalhes da pessoa:", err);
-    res.status(500).json({ error: "Erro ao obter detalhes da pessoa." });
-  }
-});
+router.get("/:id", getPersonById)
 
 router.post("/", async (req: Request, res: Response) => {
   const { name, phone, email, address } = req.body;

@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
 import * as servicePeople from '../service/people.service';
-import { People } from '../../models/people';
-import { Activities } from '../../models/activities';
 
 export const peopleCreate = async (req: Request, res: Response) => {
   try {
@@ -23,24 +21,11 @@ export const listarPessoas = async (_req: Request, res: Response) => {
   }
 };
 
-export const getPeopleById = async (req: Request, res: Response) => {
+export const getPersonById = async (req: Request, res: Response) => {
   const { id } = req.params;
-
-  try {
-    const people = await People.findByPk(id, {
-      include: [
-        {
-          model: Activities,
-          as: 'atividadesPessoa', // Deve ser igual ao alias configurado no relacionamento
-        },
-      ],
-    });
-
-    if (!people) {
-      return res.status(404).json({ error: 'Pessoa não encontrada' });
-    }
-
-    res.json(people);
+  try { 
+    const person = await servicePeople.getPersonById(id);
+    res.json(person);
   } catch (err) {
     console.error('Erro ao obter detalhes da pessoa:', err);
     res.status(500).json({ error: 'Erro ao obter detalhes da pessoa.' });

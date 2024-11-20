@@ -46,5 +46,5 @@ Activities.init(
 );
 
 
-Activities.belongsTo(People, { foreignKey: 'personId', as: 'pessoaAtividade' });
-People.hasMany(Activities, { foreignKey: 'personId', as: 'atividadesPessoa' });
+
+

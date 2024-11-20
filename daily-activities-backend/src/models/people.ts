@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database';
+import { Activities } from './activities';
 
 export class People extends Model {
   public id!: number;
@@ -38,3 +39,4 @@ People.init(
     modelName: 'People',
   }
 );
+People.hasMany(Activities, { foreignKey: 'personId', as: 'atividades' });

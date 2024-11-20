@@ -1,19 +1,44 @@
 <form (ngSubmit)="onSave()">
   <label for="name">Nome da Atividade:</label>
-  <input type="text" id="name" [(ngModel)]="atividade.name" name="name" required />
+  <input
+    type="text"
+    id="name"
+    [(ngModel)]="atividade.name"
+    name="name"
+    required
+  />
 
   <label for="description">Descrição:</label>
-  <textarea id="description" [(ngModel)]="atividade.description" name="description" required></textarea>
+  <textarea
+    id="description"
+    [(ngModel)]="atividade.description"
+    name="description"
+    required
+  ></textarea>
 
   <label for="startDate">Data de Início:</label>
-  <input type="date" id="startDate" [(ngModel)]="atividade.startDate" name="startDate" required />
+  <input
+    type="date"
+    id="startDate"
+    [(ngModel)]="atividade.startDate"
+    name="startDate"
+    required
+  />
 
   <label for="endDate">Data de Fim:</label>
-  <input type="date" id="endDate" [(ngModel)]="atividade.endDate" name="endDate" required />
+  <input
+    type="date"
+    id="endDate"
+    [(ngModel)]="atividade.endDate"
+    name="endDate"
+    required
+  />
 
   <label for="person">Pessoa Associada:</label>
   <select id="person" [(ngModel)]="atividade.personId" name="personId" required>
-    <option *ngFor="let pessoa of pessoas" [value]="pessoa.id">{{ pessoa.name }}</option>
+    <option *ngFor="let pessoa of pessoas" [value]="pessoa.id">
+      {{ pessoa.name }}
+    </option>
   </select>
 
   <button type="submit">Salvar</button>

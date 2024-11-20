@@ -1,3 +1,4 @@
+import { Activities } from '../../models';
 import { People } from '../../models/people';
 
 export const createPeople = async (data: any) => {
@@ -8,8 +9,18 @@ export const peopleList = async () => {
   return await People.findAll();
 };
 
-export const peopleGetForId = async (id: number) => {
-  return await People.findByPk(id, {
-    include: ['atividades'],
-  });
+export const getPersonById = async (id: string) => {
+    const people = await People.findByPk(id, {
+        include: [
+          {
+            model: Activities,
+            as: 'atividades', 
+          },
+        ],
+      });
+  
+      if (!people) {
+        throw({ error: 'Pessoa não encontrada' });
+      }
+      return people
 };
