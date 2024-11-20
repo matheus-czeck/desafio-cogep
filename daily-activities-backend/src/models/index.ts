@@ -1,9 +1,10 @@
-import sequelize from '../config/database';
-import { Sequelize } from 'sequelize';
+import sequelize from "../config/database";
+import { People } from "./people";
+import { Activities } from "./activities";
+import { User } from "./user";
 
-const db: { [key: string]: any } = {};
+People.hasMany(Activities, { foreignKey: "personId", as: "atividadesPessoa" });
+Activities.belongsTo(People, { foreignKey: "personId", as: "pessoaAtividade" });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-export default db;
+// Exportar sequelize e os modelos
+export { sequelize, People, Activities, User };

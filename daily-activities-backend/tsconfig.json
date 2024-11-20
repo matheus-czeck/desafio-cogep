@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "types": ["@types/express"],
+    "types": ["node", "express"],
     "target": "ES6",
     "module": "CommonJS",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist", // Diretório de saída para os arquivos .js
-    "rootDir": "./src", // Diretório onde estão os arquivos .ts
-    "forceConsistentCasingInFileNames": true
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

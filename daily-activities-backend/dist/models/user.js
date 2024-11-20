@@ -15,10 +15,6 @@ User.init({
         autoIncrement: true,
         primaryKey: true,
     },
-    name: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
-    },
     email: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
@@ -32,3 +28,4 @@ User.init({
     sequelize: database_1.default,
     modelName: 'User',
 });
+exports.default = User;

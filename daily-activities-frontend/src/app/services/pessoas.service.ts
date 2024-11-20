@@ -42,6 +42,10 @@ export class PessoasService {
 
 
   getPessoaById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get(`${this.apiUrl}/${id}`, { headers });
   }
-}
+}  

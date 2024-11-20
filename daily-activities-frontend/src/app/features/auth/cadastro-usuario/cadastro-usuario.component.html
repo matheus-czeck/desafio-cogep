@@ -1,0 +1,17 @@
+<div class="cadastro-container">
+    <form (ngSubmit)="onRegister()">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required />
+      <label for="password">Senha:</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <button type="submit">Cadastrar</button>
+    </form>
+    <a [routerLink]="['/login']">Já tem uma conta? Voltar para Login</a>
+  </div>
+  

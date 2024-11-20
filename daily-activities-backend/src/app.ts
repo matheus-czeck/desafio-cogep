@@ -1,37 +1,30 @@
 import express from 'express';
-import cors from 'cors';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import authRoutes from './routes/authRoutes/auth.routes';
 import sequelize from './config/database';
-import authRoutes from './routes/auth.routes';
-import atividadesRoutes from './routes/atividades.routes'
-import pessoasRoutes from './routes/pessoas.routes'
+import peopleRoutes from './routes/peopleRoutes/peopleRoutes';
+import activitiesRoutes from './routes/activitieRoutes/activitiesRoutes';
 
 const app = express();
 
-sequelize.sync()
-  .then(() => {
-    console.log('Banco de dados sincronizado!');
-  })
-  .catch((err) => {
-    console.error('Erro ao sincronizar banco de dados:', err);
-  });
-
-
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // Rotas
 app.use('/auth', authRoutes);
-app.use('/atividades', atividadesRoutes);
-app.use('/pessoas', pessoasRoutes);
+app.use('/pessoas', peopleRoutes);
+app.use(express.json());
+app.use('/atividades', activitiesRoutes); 
 
-// Testa a conexão com o banco de dados
-sequelize.sync().then(() => {
-  console.log('Banco de dados sincronizado!');
-});
+// Sincronizar banco de dados
+sequelize
+  .sync({ force: true })
+  .then(() => console.log('Banco de dados sincronizado com sucesso!'))
+  .catch((err) => console.error('Erro ao sincronizar banco de dados:', err));
 
-// Inicia o servidor
+// Iniciar servidor
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
