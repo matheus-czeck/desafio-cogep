@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "types": ["@types/express"],
+    "target": "ES6",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist", // Diretório de saída para os arquivos .js
+    "rootDir": "./src", // Diretório onde estão os arquivos .ts
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
