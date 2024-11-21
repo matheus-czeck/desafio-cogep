@@ -1,10 +1,21 @@
 <div class="container">
-    <h2>Bem-vindo!</h2>
-    <p>Escolha uma ação:</p>
-    <button class="btn btn-primary" (click)="goToCadastroPessoas()">Cadastrar Pessoas</button>
-    <button class="btn btn-secondary" (click)="goToCadastroAtividades()">Cadastrar Atividades</button>
-    <button (click)="goToListaPessoas()">Listar Pessoas Cadastradas</button>
-
-
+  <h1 class="text-center mt-4">Bem-vindo!</h1>
+  <h5 class="text-center mt-4">Escolha uma ação:</h5>
+  <div class="row">
+    <div class="col-md-4">
+      <button class="w-100 btn btn-info" (click)="goToCadastroPessoas()">
+        Cadastrar Pessoas
+      </button>
+    </div>
+    <div class="col-md-4" >
+      <button (click)="goToCadastroAtividades()" class=" btn btn-info w-100">
+        Cadastrar Atividades
+      </button>
+    </div>
+    <div class="col-md-4">
+      <button (click)="goToListaPessoas()"  class="btn btn-info w-100 ">
+        Listar Todos
+      </button>
+    </div>
   </div>
-  
+</div>

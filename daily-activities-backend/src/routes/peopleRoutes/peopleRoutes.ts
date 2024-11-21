@@ -4,6 +4,8 @@ import personController from "../../services/controllers/people.controller";
 
 const router = Router();
 
+
+
 router.use(authenticate);
 
 router.get("/", personController.listarPessoas);                

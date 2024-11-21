@@ -6,5 +6,5 @@ import { User } from "./user";
 People.hasMany(Activities, { foreignKey: "personId", as: "atividadesPessoa" });
 Activities.belongsTo(People, { foreignKey: "personId", as: "pessoaAtividade" });
 
-// Exportar sequelize e os modelos
+
 export { sequelize, People, Activities, User };

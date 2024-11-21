@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import peopleService from '../service/people.service';
 
-
 export const createPerson = async (req: Request, res: Response) => {
   try {
     const people = await peopleService.createPeople(req.body);

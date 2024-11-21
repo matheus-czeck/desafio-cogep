@@ -1,6 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database';
-import { People } from './people';
 
 export class Activities extends Model {
   public id!: number;

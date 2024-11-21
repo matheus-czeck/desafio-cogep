@@ -13,6 +13,7 @@ export class ListaPessoasComponent implements OnInit {
   pessoas: any[] = []; 
   pessoaSelecionada: any = null; 
   atividades: any[] = []; 
+  parsedAddress: any = null; 
 
   constructor(private pessoasService: PessoasService) {}
 
@@ -38,6 +39,16 @@ export class ListaPessoasComponent implements OnInit {
         next: (res) => {
           this.pessoaSelecionada = res;
           this.atividades = res.atividades || [];
+
+          try {
+            this.parsedAddress =
+              typeof res.address === 'string'
+                ? JSON.parse(res.address)
+                : res.address;
+          } catch (e) {
+            console.error('Erro ao parsear endereço:', e);
+            this.parsedAddress = null;
+          }
         },
         error: (err) => {
           console.error('Erro ao carregar detalhes da pessoa:', err);

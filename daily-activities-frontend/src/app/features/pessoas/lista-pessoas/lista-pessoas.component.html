@@ -1,26 +1,52 @@
-<div>
-  <label for="pessoa">Selecione uma pessoa:</label>
-  <select id="pessoa" (change)="onSelecionarPessoa($event)">
+<div class="container">
+  <label for="pessoa" class="text-center mt-4">Selecione uma pessoa:</label>
+  <select id="pessoa" (change)="onSelecionarPessoa($event)" class="form-select">
     <option value="" disabled selected>Escolha uma pessoa</option>
     <option *ngFor="let pessoa of pessoas" [value]="pessoa.id">
       {{ pessoa.name }}
     </option>
   </select>
-  
 </div>
 
-<div *ngIf="pessoaSelecionada">
-  <h3>Informações da Pessoa</h3>
-  <p><strong>Nome:</strong> {{ pessoaSelecionada.name }}</p>
-  <p><strong>Telefone:</strong> {{ pessoaSelecionada.phone }}</p>
-  <p><strong>Email:</strong> {{ pessoaSelecionada.email }}</p>
-  <p><strong>Endereço:</strong> {{ pessoaSelecionada.address }}</p>
+<div *ngIf="pessoaSelecionada" class="mt-4 container">
+  <div class="card shadow p-4">
+    <h3 class="text-primary text-center mb-4">Informações da Pessoa</h3>
+    
+    <div class="row mb-2">
+      <label class="col-sm-3 fw-bold">Nome:</label>
+      <div class="col-sm-9">{{ pessoaSelecionada.name }}</div>
+    </div>
 
-  <h3>Atividades</h3>
-  <ul>
-    <li *ngFor="let atividade of atividades">
-      <strong>{{ atividade.name }}</strong>: {{ atividade.description }}
-    </li>
-  </ul>
-</div>
+    <div class="row mb-2">
+      <label class="col-sm-3 fw-bold">Telefone:</label>
+      <div class="col-sm-9">{{ pessoaSelecionada.phone }}</div>
+    </div>
+
+    <div class="row mb-2">
+      <label class="col-sm-3 fw-bold">Email:</label>
+      <div class="col-sm-9">{{ pessoaSelecionada.email }}</div>
+    </div>
+
+    <div class="row mb-2">
+      <label class="col-sm-3 fw-bold">Endereço:</label>
+      <div class="col-sm-9">
+        <p *ngIf="parsedAddress">
+          <strong>Rua:</strong> {{ parsedAddress.street }}<br />
+          <strong>Número:</strong> {{ parsedAddress.number }}<br />
+          <strong>Complemento:</strong> {{ parsedAddress.complement }}<br />
+          <strong>Cidade:</strong> {{ parsedAddress.city }}
+        </p>
+        <p *ngIf="!parsedAddress">Endereço não disponível.</p>
+      </div>
+    </div>
+
+    <h3 class="text-primary text-center mb-4">Atividades</h3>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let atividade of atividades">
+        <strong>{{ atividade.name }}</strong>: {{ atividade.description }}
+      </li>
+    </ul>
+  </div>
+<div class="container">
 <app-back-button></app-back-button>
+</div>

@@ -1,19 +1,35 @@
-<div class="container">
-    <h2>Login</h2>
+<div
+  class="container d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="card p-4 shadow" style="width: 350px;">
+    <h2 class="text-center">Login</h2>
     <form (ngSubmit)="onLogin()">
-      <div class="mb-3">
+      <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" type="email" [(ngModel)]="email" name="email" class="form-control" required />
+        <input
+          id="email"
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          required
+        />
       </div>
-      <div class="mb-3">
+      <div class="form-group mt-3">
         <label for="password">Senha</label>
-        <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control" required />
+        <input
+          id="password"
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          required
+        />
       </div>
-      <button type="submit" class="btn btn-primary">Entrar</button>
+      <button type="submit" class="btn btn-primary mt-4 w-100">Entrar</button>
     </form>
-    
-    <a [routerLink]="['/cadastre-se']">Não tem uma conta? Cadastre-se</a>
 
-    
+    <a [routerLink]="['/cadastre-se']" class="d-block text-center mt-3">Não tem uma conta? Cadastre-se</a>
   </div>
-  
+</div>

@@ -5,20 +5,10 @@ import { Router } from '@angular/router';
   selector: 'app-back-button',
   standalone: true,
   template: `
-    <button (click)="voltar()" class="btn btn-secondary">
-      ← Voltar
+    <button (click)="voltar()" class="btn btn-secondary w-100 mt-3">
+       Voltar
     </button>
   `,
-  styles: [
-    `
-      button {
-        margin: 10px 0;
-        font-size: 16px;
-        padding: 8px 12px;
-        cursor: pointer;
-      }
-    `,
-  ],
 })
 export class BackButtonComponent {
   constructor(private router: Router) {}

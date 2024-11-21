@@ -5,16 +5,14 @@ import jwt from 'jsonwebtoken';
 const SECRET_KEY = process.env.JWT_SECRET || 'default-secret';
 
 export const registerUser = async (email: string, password: string) => {
-    // Verificar se o email já está em uso
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       throw new Error('E-mail já cadastrado');
     }
   
-    // Hash da senha
+
     const hashedPassword = await bcrypt.hash(password, 10);
   
-    // Criar usuário com email e senha
     return await User.create({ email, password: hashedPassword });
   };
 

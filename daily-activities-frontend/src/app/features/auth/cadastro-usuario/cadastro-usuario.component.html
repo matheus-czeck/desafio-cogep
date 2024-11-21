@@ -1,17 +1,34 @@
-<div class="cadastro-container">
+<div
+  class="container d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="card p-4 shadow" style="width: 400px">
+    <h2 class="text-center">Cadastre-se</h2>
     <form (ngSubmit)="onRegister()">
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" required />
-      <label for="password">Senha:</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="password"
-        name="password"
-        required
-      />
-      <button type="submit">Cadastrar</button>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label for="password">Senha:</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          class="form-control"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-4 w-100">Cadastrar</button>
     </form>
-    <a [routerLink]="['/login']">Já tem uma conta? Voltar para Login</a>
+    <a [routerLink]="['/login']" class="d-block text-center mt-3">Já tem uma conta? Voltar para Login</a>
   </div>
-  
+</div>
